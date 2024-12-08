@@ -15,7 +15,7 @@ export class UserService {
 
     constructor(
         database = db
-    ){
+    ) {
         this.db = database
     }
 
@@ -31,6 +31,11 @@ export class UserService {
 
     getAllUsers = () => {
         return this.db
+    }
+
+    deleteUser = (email: string) => {
+        this.db = this.db.filter(user => user.email !== email)
+        console.log('User deletado, DB:', this.db)
     }
 }
 

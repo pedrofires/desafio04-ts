@@ -14,4 +14,10 @@ describe('UserService', () => {
         const users = userService.getAllUsers();
         expect(users).toEqual(mockDb)
     })
+
+    it('Deve apagar um usuário', () => {
+        const mockConsole = jest.spyOn(global.console, 'log')
+        userService.deleteUser('joana@dio.com');
+        expect(mockConsole).toHaveBeenCalledWith('User deletado, DB:', mockDb)
+    })
 })
