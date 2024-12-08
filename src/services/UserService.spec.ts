@@ -9,4 +9,9 @@ describe('UserService', () => {
         userService.createUser('nath', 'nath@test.com');
         expect(mockConsole).toHaveBeenCalledWith('DB atualizado', mockDb)
     })
+
+    it('Deve retornar todos os usuários', () => {
+        const users = userService.getAllUsers();
+        expect(users).toEqual(mockDb)
+    })
 })
